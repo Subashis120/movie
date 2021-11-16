@@ -22,7 +22,8 @@ class Category(models.Model):
 
 class Movie(models.Model):
     NAME = models.TextField(blank=False)
-    CatID = models.ForeignKey(Category, on_delete=models.CASCADE)
+    COVER = models.ImageField(upload_to="cover_pic", blank=True)
+    CatID_id = models.ForeignKey(Category, on_delete=models.CASCADE)
     CAST = models.TextField(blank=False)
     DESCRIPTION = models.TextField(blank=False)
 
@@ -32,8 +33,8 @@ class Movie(models.Model):
 
 class Review(models.Model):
     Review = models.TextField()
-    MID = models.ForeignKey(Movie, on_delete=models.CASCADE)
-    UID = models.ForeignKey(Users, on_delete=models.CASCADE)
+    MID_id = models.ForeignKey(Movie, on_delete=models.CASCADE)
+    UID_id = models.ForeignKey(Users, on_delete=models.CASCADE)
     LIKES = models.IntegerField()
     DISLIKES = models.IntegerField()
 
@@ -43,8 +44,8 @@ class Review(models.Model):
 
 class Rating(models.Model):
     Count = models.IntegerField()
-    MID = models.ForeignKey(Movie, on_delete=models.CASCADE)
-    UID = models.ForeignKey(Users, on_delete=models.CASCADE)
+    MID_id = models.ForeignKey(Movie, on_delete=models.CASCADE)
+    UID_id = models.ForeignKey(Users, on_delete=models.CASCADE)
 
     def __str__(self):
         return str(self.Count)
