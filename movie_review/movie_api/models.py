@@ -26,7 +26,7 @@ class Movie(models.Model):
         return '/'.join(['cover_pic', str(self.NAME), filename])
 
     NAME = models.TextField(blank=False)
-    COVER = models.ImageField(upload_to="fileName", blank=True)
+    COVER = models.ImageField(upload_to=fileName, blank=True)
     CatID_id = models.ForeignKey(Category, on_delete=models.CASCADE)
     CAST = models.TextField(blank=False)
     DESCRIPTION = models.TextField(blank=False)
